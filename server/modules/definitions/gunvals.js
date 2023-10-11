@@ -103,7 +103,7 @@ module.exports = {
     
     // Bombardier
     bombardier: { reload: 2.2, recoil: 1.2, shudder: 0.5, health: 1.2, damage: 1.2, pen: 0.8, speed: 0.55, maxSpeed: 0.8 },
-    bombTrail: { reload: 0.01, recoil: 0.00001, health: 0.00001, damage:0.00001, pen: 0.00001, speed: 1.25, maxSpeed: 1.25, range: 0.05 },
+    bombTrail: { reload: 0.01, recoil: 0.00001, health: 0.00001, damage:0.00001, pen: 0.00001, speed: 1.25, maxSpeed: 1.25, range: 0.1 },
     bombBullet: { health: 0.5, damage:0.5, pen: 0.5, range: 0.5 },
 
     // Missiles
