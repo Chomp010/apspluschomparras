@@ -34,17 +34,34 @@ class IO {
     }
 }
 class io_bossRushAI extends IO {
-    constructor(body, opts = {}) {
+    constructor(body) {
         super(body);
         this.enabled = true;
-        this.spot = opts.spot ? opts.spot : "nest";
         this.goal = {
             x: room.width / 2,
             y: room.height / 2
         }
     }
     think(input) {
-        if (room.isIn(spot, this.body)) {
+        if (room.isIn("nest", this.body)) {
+            this.enabled = false;
+        }
+        if (this.enabled) {
+            return {
+                goal: this.goal
+            }
+        }
+    }
+}
+class io_blockadeAI extends IO {
+    constructor(b, opts = { spot: "nest"}) {
+        super(b);
+        this.enabled = true;
+        this.spot = opts.spot;
+        this.goal = room.randomType(this.spot);
+    }
+    think(input) {
+        if (room.isIn(this.spot, this.body)) {
             this.enabled = false;
         }
         if (this.enabled) {
@@ -720,6 +737,7 @@ let ioTypes = {
     canRepel: io_canRepel,
     mapTargetToGoal: io_mapTargetToGoal,
     bossRushAI: io_bossRushAI,
+    blockadeAI: io_blockadeAI,
     moveInCircles: io_moveInCircles,
     boomerang: io_boomerang,
     goToMasterTarget: io_goToMasterTarget,
