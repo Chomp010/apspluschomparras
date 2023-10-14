@@ -3,10 +3,10 @@ module.exports = {
 
     // Game server domain.
     // If 'localhost:NUMBER', the port must equal the port setting.
-    host: "localhost:3000",
+    host: "localhost:6000", //localhost:3000
 
     // Which port to run the web server on.
-    port: 3000,
+    port: 6000,
 
     // Ticks per second. 1 is 30 tps, 2 is 60, etc.
     // Has physics side effecs.
