@@ -2166,7 +2166,7 @@ exports.titanHowlerMiddleBody = {
 exports.titanHowler = {
     PARENT: ["titanCelestial"],
     LABEL: "Titan Howler",
-    NAME: "Tohru",
+    NAME: "Rhigohr",
     COLOR: 0,
     GUNS: [
         {
@@ -2237,19 +2237,19 @@ exports.titanHowler = {
     TURRETS: [
         {
             /*********    SIZE         X             Y         ANGLE        ARC */
-            POSITION: [10.5, 5, 0, 45, 0, 0],
+            POSITION: [10.5, 4.5, 0, 45, 0, 0],
             TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}], //["baseTrapTurret", { INDEPENDENT: true }],
         },
         {
-            POSITION: [10.5, 5, 0, 135, 0, 0],
+            POSITION: [10.5, 4.5, 0, 135, 0, 0],
             TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
         },
         {
-            POSITION: [10.5, 5, 0, 225, 0, 0],
+            POSITION: [10.5, 4.5, 0, 225, 0, 0],
             TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
         },
         {
-            POSITION: [10.5, 5, 0, 315, 0, 0],
+            POSITION: [10.5, 4.5, 0, 315, 0, 0],
             TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
         },
         {
@@ -2285,7 +2285,7 @@ exports.titanGliderTopTurret = {
                     g.pound,
                     g.launcher,
                     g.rocketeer,
-                    g.glider,
+                    g.skim,
                     {recoil: 0.1}
                 ]),
                 TYPE: "gliderMissile",
@@ -2335,7 +2335,7 @@ exports.titanGliderMiddleBody = {
 exports.titanGlider = {
     PARENT: ["titanCelestial"],
     LABEL: "Titan Glider",
-    NAME: "Haruna",
+    NAME: "Alios",
     COLOR: 2,
     GUNS: [{
         POSITION: [4, 6, 1.2, 8, 0, 90, 0],
@@ -2386,20 +2386,20 @@ exports.titanGlider = {
     TURRETS: [
         {
             /*********    SIZE         X             Y         ANGLE        ARC */
-            POSITION: [10.5, 5, 0, 45, 0, 0],
-            TYPE: ["wark", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}], //["baseTrapTurret", { INDEPENDENT: true }],
+            POSITION: [10.5, 4.5, 0, 45, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}], //["baseTrapTurret", { INDEPENDENT: true }],
         },
         {
-            POSITION: [10.5, 5, 0, 135, 0, 0],
-            TYPE: ["wark", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
+            POSITION: [10.5, 4.5, 0, 135, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
         },
         {
-            POSITION: [10.5, 5, 0, 225, 0, 0],
-            TYPE: ["wark", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
+            POSITION: [10.5, 4.5, 0, 225, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
         },
         {
-            POSITION: [10.5, 5, 0, 315, 0, 0],
-            TYPE: ["wark", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
+            POSITION: [10.5, 4.5, 0, 315, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
         },
         {
             POSITION: [14.77, 0, 0, 0, 360, 1],
@@ -2408,6 +2408,144 @@ exports.titanGlider = {
         {
             POSITION: [8.7, 0, 0, 0, 360, 1],
             TYPE: ["titanGliderTopTurret"],
+        },
+    ],
+};
+exports.titanInvokerTopTurret = {
+    PARENT: ["genericTank"],
+    LABEL: 'Top Turret',
+    CONTROLLERS: [/*"canRepel", */["spin", { onlyWhenIdle: true, speed: 0.05 }], "onlyAcceptInArc", "mapAltToFire", "nearestDifferentMaster"],
+    SHAPE: 6,
+    COLOR: 13,
+    DANGER: 7,
+    BODY: {
+        FOV: 1.15
+    },
+    GUNS: [{
+        POSITION: [14, 12, -0.5, 9, 0, 0, 0]
+    }, {
+        POSITION: [20, 14, 1, 0, 0, 0, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic, g.pound, g.arty, g.arty, g.skim, g.demoman]),
+            TYPE: "demomanMissile",
+            STAT_CALCULATOR: gunCalcNames.sustained,
+        }
+    }, {
+        POSITION: [11, 14, -1.4, 3, 0, 0, 0]
+    },]
+};
+exports.titanInvokerMiddleBody = {
+    LABEL: "",
+    CONTROLLERS: [["spin", { independent: true, speed: -0.05 }]],
+    COLOR: 13,
+    SIZE: 100,
+    SKILL: [7, 7, 7, 7, 7, 7, 7, 7, 7, 7],
+    SHAPE: 6,
+    INDEPENDENT: true,
+    TURRETS: [
+        {
+            //**     SIZE         X             Y         ANGLE        ARC
+            POSITION: [9, 7.5, 0, 0, 160, 0],
+            TYPE: ["sniper3gun"],
+        },
+        {
+            POSITION: [9, 7.5, 0, 60, 160, 0],
+            TYPE: ["sniper3gun"],
+        },
+        {
+            POSITION: [9, 7.5, 0, 120, 160, 0],
+            TYPE: ["sniper3gun"],
+        },
+        {
+            POSITION: [9, 7.5, 0, 180, 160, 0],
+            TYPE: ["sniper3gun"],
+        },
+        {
+            POSITION: [9, 7.5, 0, 240, 160, 0],
+            TYPE: ["sniper3gun"],
+        },
+        {
+            POSITION: [9, 7.5, 0, 300, 160, 0],
+            TYPE: ["sniper3gun"],
+        },
+    ],
+};
+exports.titanInvoker = {
+    PARENT: ["titanCelestial"],
+    LABEL: "Titan Invoker",
+    NAME: "Itmus",
+    COLOR: 13,
+    GUNS: [{
+        POSITION: [4, 6, 1.2, 8, 0, 90, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.summoner, { size: 0.9, health: 1.2, damage: 1.2 }]),
+            TYPE: "sunchip",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            MAX_CHILDREN: 6,
+            STAT_CALCULATOR: gunCalcNames.drone,
+            WAIT_TO_CYCLE: true
+        }
+    }, {
+        POSITION: [4, 6, 1.2, 8, 0, 180, .25],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.summoner, { size: 0.9, health: 1.2, damage: 1.2 }]),
+            TYPE: "sunchip",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            MAX_CHILDREN: 6,
+            STAT_CALCULATOR: gunCalcNames.drone,
+            WAIT_TO_CYCLE: true
+        }
+    }, {
+        POSITION: [4, 6, 1.2, 8, 0, 270, .5],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.summoner, { size: 0.9, health: 1.2, damage: 1.2 }]),
+            TYPE: "sunchip",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            MAX_CHILDREN: 6,
+            STAT_CALCULATOR: gunCalcNames.drone,
+            WAIT_TO_CYCLE: true
+        }
+    }, {
+        POSITION: [4, 6, 1.2, 8, 0, 0, .75],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.drone, g.summoner, { size: 0.9, health: 1.2, damage: 1.2 }]),
+            TYPE: "sunchip",
+            AUTOFIRE: true,
+            SYNCS_SKILLS: true,
+            MAX_CHILDREN: 6,
+            STAT_CALCULATOR: gunCalcNames.drone,
+            WAIT_TO_CYCLE: true
+        }
+    }
+    ],
+    TURRETS: [
+        {
+            /*********    SIZE         X             Y         ANGLE        ARC */
+            POSITION: [10.5, 4.5, 0, 45, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}], //["baseTrapTurret", { INDEPENDENT: true }],
+        },
+        {
+            POSITION: [10.5, 4.5, 0, 135, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
+        },
+        {
+            POSITION: [10.5, 4.5, 0, 225, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
+        },
+        {
+            POSITION: [10.5, 4.5, 0, 315, 0, 0],
+            TYPE: ["mech", {CONTROLLERS: ["mapAltToFire", "nearestDifferentMaster"],}],
+        },
+        {
+            POSITION: [14.77, 0, 0, 0, 360, 1],
+            TYPE: ["titanInvokerMiddleBody"],
+        },
+        {
+            POSITION: [8.7, 0, 0, 0, 360, 1],
+            TYPE: ["titanInvokerTopTurret"],
         },
     ],
 };
