@@ -1046,7 +1046,7 @@ class Entity extends EventEmitter {
         }
         if (set.BODY != null) {
             if (set.BODY.ACCELERATION != null) this.ACCELERATION = set.BODY.ACCELERATION;
-            if (set.BODY.SPEED != null) this.SPEED = set.BODY.SPEED;
+            if (set.BODY.SPEED != null) this.SPEED = set.BODY.SPEED * 1.2;
             if (set.BODY.HEALTH != null) this.HEALTH = set.BODY.HEALTH;
             if (set.BODY.RESIST != null) this.RESIST = set.BODY.RESIST;
             if (set.BODY.SHIELD != null) this.SHIELD = set.BODY.SHIELD;
