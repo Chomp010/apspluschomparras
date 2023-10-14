@@ -204,6 +204,75 @@ exports.spinmissile = {
         },
     ],
 };
+exports.demomanMissile = {
+    PARENT: ["bullet"],
+    LABEL: "Missile",
+    INDEPENDENT: !0,
+    BODY: {
+        RANGE: 120,
+    },
+    FACING_TYPE: "fastspin",
+    GUNS: [],
+};
+
+for(let i = 0; i < 3; i++) {
+    exports.demomanMissile.GUNS.push(
+        {
+            POSITION: [14, 8, 1, 0, 0, 120 * i + 60, 0.5],
+            PROPERTIES: {
+                AUTOFIRE: !0,
+                SHOOT_SETTINGS: combineStats([
+                    g.basic,
+                    g.skim,
+                    g.lowpower,
+                    g.morereload,
+                    g.morespeed,
+                    g.morespeed,
+                ]),
+                TYPE: [
+                    "bullet",
+                    {
+                        PERSISTS_AFTER_DEATH: !0,
+                    },
+                ],
+                STAT_CALCULATOR: gunCalcNames.thruster,
+            },
+        },
+        {
+            POSITION: [14, 8, 1, 0, 0, 120 * i + 120, 0],
+            PROPERTIES: {
+                AUTOFIRE: !0,
+                SHOOT_SETTINGS: combineStats([
+                    g.basic,
+                    g.skim,
+                    g.lowpower,
+                    g.morereload,
+                    g.morespeed,
+                    g.morespeed,
+                ]),
+                TYPE: [
+                    "bullet",
+                    {
+                        PERSISTS_AFTER_DEATH: !0,
+                    },
+                ],
+                STAT_CALCULATOR: gunCalcNames.thruster,
+            },
+        },
+    );
+    /*exports.nestGuardian.TURRETS.push(
+        {
+            POSITION: [8, 9, 0, 72*i, 120, 0],
+            TYPE: [
+                "swarmerTurret",
+                {
+                    INDEPENDENT: true,
+                    COLOR: 14,
+                },
+            ],
+        }
+    );*/
+};
 exports.hyperspinmissile = {
     PARENT: ["bullet"],
     LABEL: "Missile",
@@ -1383,6 +1452,67 @@ exports.autoSmasherBullet = {
     ],
     IS_SMASHER: true,
 };
+exports.bomb = {
+    PARENT: ["bullet"],
+    LABEL: "Bomb",
+    FACING_TYPE: "turnWithSpeed",
+    INDEPENDENT: true,
+    BODY: {
+        RANGE: 120,
+    },
+    GUNS: [
+        {
+            POSITION: [14, 8, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                AUTOFIRE: true,
+                SHOOT_SETTINGS: combineStats([
+                    g.basic,
+                    g.bombTrail,
+                ]),
+                TYPE: [
+                    "bullet",
+                    {
+                        PERSISTS_AFTER_DEATH: true,
+                    },
+                ],
+                STAT_CALCULATOR: gunCalcNames.thruster,
+            },
+        },
+    ],
+};
+for(let i = 0; i < 16; i++) {
+    exports.bomb.GUNS.push(
+        {
+            POSITION: [0, 8, 1, 0, 0, 22.5*i+22.5, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([
+                    g.basic,
+                    g.bombBullet,
+                    g.bombBullet2,
+                ]),
+                TYPE: [
+                    "bullet",
+                    {
+                        PERSISTS_AFTER_DEATH: true,
+                    },
+                ],
+                SHOOT_ON_DEATH: true,
+            },
+        },
+    );
+    /*exports.nestGuardian.TURRETS.push(
+        {
+            POSITION: [8, 9, 0, 72*i, 120, 0],
+            TYPE: [
+                "swarmerTurret",
+                {
+                    INDEPENDENT: true,
+                    COLOR: 14,
+                },
+            ],
+        }
+    );*/
+};
 exports.lilbomb = {
     PARENT: ["bullet"],
     LABEL: "Bomb",
@@ -1538,6 +1668,66 @@ exports.lilbomb = {
             },
         },
     ],
+};
+exports.cactusbomb = {
+    PARENT: ["bullet"],
+    LABEL: "Bomb",
+    FACING_TYPE: "turnWithSpeed",
+    INDEPENDENT: true,
+    BODY: {
+        RANGE: 120,
+    },
+    GUNS: [
+        {
+            POSITION: [14, 8, 0.6, 0, 0, 0, 0],
+            PROPERTIES: {
+                AUTOFIRE: true,
+                SHOOT_SETTINGS: combineStats([
+                    g.swarm,
+                    g.bombTrail,
+                ]),
+                TYPE: [
+                    "swarm",
+                    {
+                        PERSISTS_AFTER_DEATH: true,
+                    },
+                ],
+                STAT_CALCULATOR: gunCalcNames.thruster,
+            },
+        },
+    ],
+};
+for(let i = 0; i < 8; i++) {
+    exports.cactusbomb.GUNS.push(
+        {
+            POSITION: [0, 8, 1, 0, 0, 45*i+45, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([
+                    g.swarm,
+                    g.bombBullet,
+                ]),
+                TYPE: [
+                    "swarm",
+                    {
+                        PERSISTS_AFTER_DEATH: true,
+                    },
+                ],
+                SHOOT_ON_DEATH: true,
+            },
+        },
+    );
+    /*exports.nestGuardian.TURRETS.push(
+        {
+            POSITION: [8, 9, 0, 72*i, 120, 0],
+            TYPE: [
+                "swarmerTurret",
+                {
+                    INDEPENDENT: true,
+                    COLOR: 14,
+                },
+            ],
+        }
+    );*/
 };
 exports.fakeGemini = {
     PARENT: ["drone"],
@@ -2677,7 +2867,7 @@ exports.stalker = {
 exports.stunAssassin = {
     PARENT: ["genericTank"],
     DANGER: 7,
-    LABEL: "Tranquilizer",
+    LABEL: "Stunner",
     BODY: {
         SPEED: 0.85 * base.SPEED,
         FOV: 1.4 * base.FOV,
@@ -3105,15 +3295,14 @@ exports.sprayer = {
         },
     ],
 };
-
-exports.bombardier = {
+exports.grenadier = {
     PARENT: ["genericTank"],
-    LABEL: "Bombardier",
+    LABEL: "Grenadier",
     GUNS: [
         {
             POSITION: [12, 10, 1.4, 8, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.bombardier]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.grenadier]),
                 TYPE: "lilbomb",
                 PERSISTS_AFTER_DEATH: true,
             },
@@ -3121,7 +3310,50 @@ exports.bombardier = {
         {
             POSITION: [5, 12.6, 0.001, 15, 0, 0, 0],
             PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.bombardier, g.fake]),
+                SHOOT_SETTINGS: combineStats([g.basic, g.grenadier, g.fake]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+};
+// GRENADIER UPGRADES
+exports.bombardier = {
+    PARENT: ["genericTank"],
+    LABEL: "Bombardier",
+    GUNS: [
+        {
+            POSITION: [12, 14, 1.2, 8, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.grenadier, g.bombardier]),
+                TYPE: "bomb",
+                PERSISTS_AFTER_DEATH: true,
+            },
+        },
+        {
+            POSITION: [5, 14.28, 0.001, 15, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.grenadier, g.bombardier, g.fake]),
+                TYPE: "bullet",
+            },
+        },
+    ],
+};
+exports.swarmGrenadier = {
+    PARENT: ["genericTank"],
+    LABEL: "Cactus",
+    GUNS: [
+        {
+            POSITION: [12, 10, 1.4, 8, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.grenadier]),
+                TYPE: "cactusbomb",
+                PERSISTS_AFTER_DEATH: true,
+            },
+        },
+        {
+            POSITION: [5, 12.6, 0.4, 15, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic, g.grenadier, g.fake]),
                 TYPE: "bullet",
             },
         },
@@ -5672,12 +5904,30 @@ exports.twister = {
                     g.skim,
                     g.morespeed,
                     g.one_third_reload,
+                    g.twister
                 ]),
                 TYPE: "spinmissile",
                 STAT_CALCULATOR: gunCalcNames.sustained,
             },
         },
     ],
+};
+exports.demoman = {
+    PARENT: ["genericTank"],
+    LABEL: 'Demoman',
+    DANGER: 7,
+    GUNS: [{
+        POSITION: [14, 12, -0.5, 9, 0, 0, 0]
+    }, {
+        POSITION: [20, 14, 1, 0, 0, 0, 0],
+        PROPERTIES: {
+            SHOOT_SETTINGS: combineStats([g.basic, g.pound, g.arty, g.arty, g.skim, g.demoman]),
+            TYPE: "demomanMissile",
+            STAT_CALCULATOR: gunCalcNames.sustained,
+        }
+    }, {
+        POSITION: [11, 14, -1.4, 3, 0, 0, 0]
+    }]
 };
 exports.swarmer = {
     PARENT: ["genericTank"],
@@ -6840,35 +7090,6 @@ exports.paramedic = {
         },
     ],
 };
-// IDK
-exports.vacuum = {
-    PARENT: ["genericTank"],
-    DANGER: 7,
-    LABEL: "Vacuum",
-    BODY: {
-        SPEED: 0.8 * base.SPEED,
-        FOV: 1.15 * base.FOV,
-    },
-    GUNS: [
-        {
-            POSITION: [18, 12, 1, 0, 0, 0, 0],
-        },
-        {
-            POSITION: [18, 4, 1, 0, 0, 0, 0],
-            PROPERTIES: {
-                COLOR: 30
-            },
-        },
-        {
-            POSITION: [2, 12, 1, 18, 0, 0, 0],
-            PROPERTIES: {
-                SHOOT_SETTINGS: combineStats([g.basic, g.pound, g.vacuum]),
-                TYPE: "gravityBullet",
-                COLOR: 30
-            },
-        },
-    ],
-};
 // TANK UPGRADE PATHS
 exports.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "director", "pounder", "trapper", "single", "minishot"/* "whirlwind"*/];
     exports.basic.UPGRADES_TIER_2 = ["smasher"];
@@ -6914,6 +7135,7 @@ exports.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "
         exports.artillery.UPGRADES_TIER_3 = ["mortar", "ordnance", "beekeeper", "fieldGun"/*, "munition"*/];
         exports.launcher.UPGRADES_TIER_3 = ["skimmer", "twister", "swarmer", "sidewinder", "fieldGun", "rocketeer"/*, "vortex"*/];
             exports.skimmer.UPGRADES_TIER_4 = ["glider"];
+            exports.twister.UPGRADES_TIER_4 = ["demoman"];
             exports.rocketeer.UPGRADES_TIER_4 = ["glider"];
 
     exports.trapper.UPGRADES_TIER_2 = ["builder", "triTrapper", "trapGuard", "wark", "mech"];
@@ -6930,6 +7152,8 @@ exports.basic.UPGRADES_TIER_1 = ["twin", "sniper", "machineGun", "flankGuard", "
         exports.flankSingle.UPGRADES_TIER_3 = ["single3"];
 
     exports.minishot.UPGRADES_TIER_2 = ["artillery", "tripleShot"];
+
+    exports.grenadier.UPGRADES_TIER_3 = ["bombardier", "swarmGrenadier"];
     /*exports.whirlwind.UPGRADES_TIER_2 = ["tornado", "hurricane"],
         exports.whirlwind.UPGRADES_TIER_3 = ["hexaWhirl", "munition", "whirl3", "whirlGuard", "prophet", "vortex"],
         exports.tornado.UPGRADES_TIER_3 = ["megaTornado", "tempest", "thunderbolt"],
