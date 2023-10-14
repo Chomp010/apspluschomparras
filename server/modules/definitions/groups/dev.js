@@ -779,6 +779,62 @@ exports.maximumOverdrive = {
     SKILL: Array(10).fill(255),
 };
 
+exports.repelTank = {
+    PARENT: ["genericTank"],
+    DANGER: 7,
+    LABEL: "Repel Tank",
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [18, 8, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [18, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: 76
+            },
+        },
+        {
+            POSITION: [2, 8, 1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic]),
+                TYPE: "repelBullet",
+                COLOR: 76
+            },
+        },
+    ],
+};
+exports.gravityTank = {
+    PARENT: ["genericTank"],
+    DANGER: 7,
+    LABEL: "Gravity Tank",
+    BODY: {
+        SPEED: 0.8 * base.SPEED,
+        FOV: 1.15 * base.FOV,
+    },
+    GUNS: [
+        {
+            POSITION: [18, 8, 1, 0, 0, 0, 0],
+        },
+        {
+            POSITION: [18, 4, 1, 0, 0, 0, 0],
+            PROPERTIES: {
+                COLOR: 30
+            },
+        },
+        {
+            POSITION: [2, 8, 1, 18, 0, 0, 0],
+            PROPERTIES: {
+                SHOOT_SETTINGS: combineStats([g.basic]),
+                TYPE: "gravityBullet",
+                COLOR: 30
+            },
+        },
+    ],
+};
 exports.levels = {
     PARENT: ["menu"],
     LABEL: "Levels",
@@ -837,7 +893,7 @@ exports.developer.UPGRADES_TIER_0 = ["basic", "betaTesterMenu", "healer", "spect
         exports.nesters.UPGRADES_TIER_0 = ["nestKeeper", "nestWarden", "nestGuardian"];
         exports.rogues.UPGRADES_TIER_0 = ["roguePalisade", "rogueArmada", "alviss", "tyr"/*, "fiolnir"*/];
         exports.terrestrials.UPGRADES_TIER_0 = [/*"ares", "gersemi", "ezekiel", "eris", "selene", "fallenOverlord"*/];
-        exports.titans.UPGRADES_TIER_0 = ["titanHowler", "titanGlider"];
+        exports.titans.UPGRADES_TIER_0 = ["titanHowler", "titanGlider", "titanInvoker"];
         exports.celestials.UPGRADES_TIER_0 = ["paladin", "freyja", "zaphkiel", "nyx", "theia"];
         exports.eternals.UPGRADES_TIER_0 = ["ragnarok", "kronos"];
         exports.fallenBosses.UPGRADES_TIER_0 = ["fallenOverlord", "fallenBooster", "fallenHybrid", "fallenFalcon"];
@@ -845,7 +901,8 @@ exports.developer.UPGRADES_TIER_0 = ["basic", "betaTesterMenu", "healer", "spect
     exports.oldTanks.UPGRADES_TIER_0 = ["oldSpreadshot", "oldBentBoomer", "quadBuilder", "weirdSpike", "master", "oldCommander", "blunderbuss", "oldRimfire"];
     exports.scrappedTanks.UPGRADES_TIER_0 = ["autoTrapper", "oldDreadnought", "mender", "prodigy"];
     exports.randomTanks.UPGRADES_TIER_0 = ["randomTankTemp"];
-    exports.fun.UPGRADES_TIER_0 = ["vanquisher", "armyOfOne", "godbasic", "maximumOverdrive", "diamondShape", "rotatedTrap", "mummifier", "colorMan", "miscTest", "auraBasic", "auraHealer", 'trplnrsTestTank', "auraGravity", "auraRepel"];
+    exports.fun.UPGRADES_TIER_0 = ["vanquisher", "armyOfOne", "godbasic", "maximumOverdrive", "diamondShape", "rotatedTrap", "mummifier", "colorMan", "miscTest", "auraBasic", 'trplnrsTestTank', "repelTank", "gravityTank"];
+    exports.auraBasic.UPGRADES_TIER_0 = ["auraHealer", "auraGravity", "auraRepel"];
 
  exports.betaTesterMenu.UPGRADES_TIER_0 = ["basic", "betaTanks"];
-   exports.betaTanks.UPGRADES_TIER_0 = ["betaTesterMenu", "gemini", "ventilator", "vacuum", "stunAssassin", "bombardier"];
+   exports.betaTanks.UPGRADES_TIER_0 = ["betaTesterMenu", "gemini", "stunAssassin", "grenadier"];
