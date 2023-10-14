@@ -102,9 +102,11 @@ module.exports = {
     shotgun: { reload: 8, recoil: 0.4, size: 1.5, damage: 0.4, pen: 0.8, speed: 1.8, maxSpeed: 0.6, density: 1.2, spray: 1.2 },
     
     // Bombardier
-    bombardier: { reload: 2.2, recoil: 1.2, shudder: 0.5, health: 1.2, damage: 1.2, pen: 0.8, speed: 0.55, maxSpeed: 0.8 },
-    bombTrail: { reload: 0.01, recoil: 0.00001, health: 0.00001, damage:0.00001, pen: 0.00001, speed: 1.25, maxSpeed: 1.25, range: 0.1 },
-    bombBullet: { health: 0.5, damage:0.5, pen: 0.5, range: 0.5 },
+    grenadier: { reload: 2.2, recoil: 1.2, shudder: 1.2, health: 0.8, damage: 0.5, pen: 0.5, speed: 0.8, maxSpeed: 0.65, spray: 1.25 },
+    bombardier: { reload: 2.2, recoil: 1.1, shudder: 0.8, health: 1.2, damage: 1.1, pen: 1.1, speed: 0.9, maxSpeed: 0.75, spray: 0.8 },
+    bombTrail: { reload: 0.1, recoil: 0.00001, shudder: 1.7, health: 0.00001, damage:0.00001, pen: 0.00001, speed: 0.15, maxSpeed: 0.15, range: 0.15 },
+    bombBullet: { health: 0.8, damage: 0.85, pen: 0.8, range: 0.5 },
+    bombBullet2: { size: 0.9, health: 1.4, damage: 0.75, pen: 1.1, density: 1.2, resist: 1.1 },
 
     // Missiles
     launcher: { reload: 1.5, recoil: 1.5, shudder: 0.1, size: 0.72, health: 1.05, damage: 0.925, speed: 0.9, maxSpeed: 1.2, range: 1.1, resist: 1.5 },
@@ -114,6 +116,8 @@ module.exports = {
     snakeskin: { reload: 0.6, shudder: 2, health: 0.5, damage: 0.5, maxSpeed: 0.2, range: 0.4, spray: 5 },
     rocketeer: { reload: 1.4, shudder: 0.9, size: 1.2, health: 1.5, damage: 1.4, pen: 1.4, speed: 0.3, range: 1.2, resist: 1.4 },
         glider: { recoil: 0.8, shudder: 0.8, size: 0.9, health: 1.35, damage: 0.6, pen: 1.5, speed: 0.3, maxSpeed: 0.3, resist: 1.1 },
+    twister: { reload: 0.975, speed: 1.3, maxSpeed: 1.3, range: 1.1 },
+        demoman: { reload: 1.5, recoil: 1.25, shudder: 1.5, damage: 0.75, density: 0.9, resist: 0.9 },
     missileTrail: { reload: 0.6, recoil: 0.25, shudder: 2, damage: 0.9, pen: 0.7, speed: 0.4, range: 0.5 },
     rocketeerMissileTrail: { reload: 0.5, recoil: 7, shudder: 1.5, size: 0.8, health: 0.8, damage: 0.7, speed: 0.9, maxSpeed: 0.8, spray: 5 },
     
@@ -155,7 +159,6 @@ module.exports = {
     // Misc 2
     healer: { damage: -1 },
     lancer: { reload: 0.4, speed: 0.1, maxSpeed: 0.1, range: 0.1 },
-    vacuum: { reload: 3.2, speed: 0.6, maxSpeed: 0.5, range: 5 },
     celeslower: { size: 0.5 },
     lowpower: { shudder: 2, health: 0.5, damage: 0.5, pen: 0.7, spray: 0.5, resist: 0.7 },
     notdense: { density: 0.1 },
